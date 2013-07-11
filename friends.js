@@ -8,12 +8,16 @@ function loadFriends() {
 	var req = opensocial.newDataRequest();
 	req.add(req.newFetchPersonRequest('VIEWER'), 'viewer');
 	req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'viewerFriends');
+	
+	console.log('Sending data request');
 	req.send(onLoadFriends);
 }
 
 function onLoadFriends(data) {
 	var viewer = data.get('viewer').getData();
 	var viewerFriends = data.get('viewerFriends').getData();
+	
+	console.log('Retreived data: ' + viewerFriends);
 	
 	html = new Array();
 	html.push('<ul>');
