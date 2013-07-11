@@ -3,6 +3,8 @@ function init() {
 }
 
 function loadFriends() {
+	log('Loading friends');
+	
 	var req = opensocial.newDataRequest();
 	req.add(req.newFetchPersonRequest('VIEWER'), 'viewer');
 	req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'viewerFriends');
@@ -21,3 +23,5 @@ function onLoadFriends(data) {
 	html.push('</ul>');
 	document.getElementById('friends').innerHTML = html.join('');
 }
+
+log('Started script');
